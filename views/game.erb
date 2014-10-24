@@ -1,0 +1,46 @@
+<html>
+<head>
+  <title>Play Chess!</title>
+</head>
+
+<link rel="stylesheet" href="/sinatra.css">
+
+<h1 align="center">Play Chess!</h1>
+
+<div align="center">
+  <table>
+    <tr>
+      <td></td>
+      <% ("A".."H").each do |file| %>
+        <th><%= "#{file}" %>  </th>
+      <% end %>
+    </tr>
+    <% 8.downto(1) do |rank| %>
+      <tr><th><%= "#{rank}  " %></th>
+      <% ("A".."H").each do |file| %>
+        <% square = "#{file}#{rank}" %>
+        <% color = (file.ord + rank.to_i).even? ? "CCCCCC" : "EEEEEE" %>
+        <td bgcolor=<%= "\##{color}" %>><%= "#{@board[square]}" %></td>
+      <% end %>
+      <th>  <%= "#{rank}" %></th>
+      </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <% ("A".."H").each do |file| %>
+        <th><%= "#{file}" %></th>
+      <% end %>
+    </tr>
+  </table>
+
+  <form method="POST" action="/game">
+    Make your move:
+    <input type="text" name="initial_position">
+    <input type="text" name="new_position">
+    <input type="submit" class="button" value="Move!">
+  </form>
+
+
+</div>
+
+</html>
