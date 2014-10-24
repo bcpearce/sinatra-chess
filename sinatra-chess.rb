@@ -1,6 +1,4 @@
 require 'sinatra'
-require 'dalli'
-require 'chess'
 
 options = { :namespace => "app_v1", :compress => true }
 cache = Dalli::Client.new('localhost:11211', options)
@@ -20,7 +18,6 @@ get '/new_game' do
 
   cache.set("game", @game)
   redirect to('/game')
-
 end
 
 get '/game' do
