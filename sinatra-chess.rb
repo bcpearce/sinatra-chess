@@ -1,12 +1,9 @@
-require_relative '../lib/board.rb'
 require 'sinatra'
 require 'dalli'
+require 'chess'
 
 options = { :namespace => "app_v1", :compress => true }
 cache = Dalli::Client.new('localhost:11211', options)
-
-set :views, Proc.new { File.join(root, "../views") }
-set :public, Proc.new { File.join(root, "../public") }
 
 enable :sessions
 
