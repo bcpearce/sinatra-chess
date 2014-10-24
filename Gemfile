@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
-'sinatra'
-'dalli'
-'chess'
+ruby "2.0.0"
+gem 'sinatra'
+gem 'dalli'
+gem 'chess'
