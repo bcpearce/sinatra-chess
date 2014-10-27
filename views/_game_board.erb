@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <td></td>
+    <% ("A".."H").each do |file| %>
+      <th><%= "#{file}" %>  </th>
+    <% end %>
+  </tr>
+  <% 8.downto(1) do |rank| %>
+    <tr><th><%= "#{rank}  " %></th>
+    <% ("A".."H").each do |file| %>
+      <% square = "#{file}#{rank}" %>
+      <% color = (file.ord + rank.to_i).even? ? "CCCCCC" : "EEEEEE" %>
+      <td bgcolor=<%= "\##{color}" %>><%= "#{@board[square]}" %></td>
+    <% end %>
+    <th>  <%= "#{rank}" %></th>
+    </tr>
+  <% end %>
+  <tr>
+    <td></td>
+    <% ("A".."H").each do |file| %>
+      <th><%= "#{file}" %></th>
+    <% end %>
+  </tr>
+</table>
