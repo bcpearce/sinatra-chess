@@ -22,7 +22,8 @@ end
 
 get '/game' do
   @board = game.board
-  erb :game, locals: {list: @board}
+  @player = game.turn
+  erb :game, locals: { list: [@board, @player] }
 end
 
 post '/game' do
@@ -30,8 +31,19 @@ post '/game' do
   loc2 = params[:new_position]
   @board = game.board
   @player = game.turn
-  @player.move(loc1.upcase, loc2.upcase, @board)
-  game.turn, game.opponent = game.opponent, game.turn
-  puts "#{@player.color}'s turn"
-  erb :game, locals: {list: @board}
+  @opponent = game.opponent
+
+  unless @player.move(loc1.upcase.strip, loc2.upcase.strip, @board).nil?
+    game.turn, game.opponent = game.opponent, game.turn
+    @player = game.turn
+  end
+
+  @check =
+    if @player.king(@board).checkmate?(@board)
+      :checkmate
+    elsif @player.king(@board).check?(@board)
+      :check
+    end
+
+  erb :game, locals: { list: [@board, @player, @check] }
 end

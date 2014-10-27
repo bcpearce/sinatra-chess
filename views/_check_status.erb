@@ -1,0 +1,9 @@
+<% if @check == :checkmate %>
+  <div class="checkmate-blurb">
+    <%= "#{@player.color.capitalize} Player, your King is in CHECKMATE!" %>
+  </div>
+<% elsif @check == :check %>
+  <div class="check-blurb">
+    <%= "#{@player.color.capitalize} Player, your King is in CHECK!" %>
+  </div>
+<% end %>

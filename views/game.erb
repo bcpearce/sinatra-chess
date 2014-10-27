@@ -11,12 +11,13 @@
   <%= erb :'_game_board' %>
 
   <form method="POST" action="/game">
-    Make your move:
+    <strong><%= @player.color.capitalize %> Player</strong> Make your move:
     <input type="text" name="initial_position">
     <input type="text" name="new_position">
     <input type="submit" class="button" value="Move!">
   </form>
 
+  <%= erb :'_check_status' %>
 
 </div>
 
