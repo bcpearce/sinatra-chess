@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/chess/chess.git
-  revision: ab085ced97d843401f44ed9e69e9a02e774e0256
+  remote: git://github.com/Hawkeye000/command-line-chess.git
+  revision: f9d4aab8a73471fa767af344cc17e3d1ce57b55e
   branch: making-chess-a-gem
   specs:
     chess (0.0.1)
