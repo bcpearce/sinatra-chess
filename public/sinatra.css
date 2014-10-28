@@ -8,12 +8,17 @@ th, td {
   width: 40px;
 }
 
+form {
+  position: relative;
+  top: 18px;
+}
+
 input {
   width: 40px;
 }
 
 input[type=submit] {
-  width: 90px;
+  width: auto
 }
 
 .button {
@@ -33,7 +38,7 @@ input[type=submit] {
   border: 2px solid black;
 }
 
-.check-blurb {
+.caution-blurb {
   color: #A88A25;
   background: #FDE287;
 
@@ -46,7 +51,7 @@ input[type=submit] {
   display: inline-block;
 }
 
-.checkmate-blurb {
+.alert-blurb {
   color: #611919;
   background: #E28B8B;
 
@@ -57,4 +62,9 @@ input[type=submit] {
   font-size: 18px;
 
   display: inline-block;
+}
+
+.new-game {
+  position: relative;
+  top: 50px;
 }

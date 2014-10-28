@@ -11,7 +11,7 @@ not_found do
 end
 
 get '/' do
-  "Click <a href = '/new_game'>here</a> to start a new game"
+  erb :game
 end
 
 get '/new_game' do

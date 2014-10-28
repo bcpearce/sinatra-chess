@@ -8,16 +8,14 @@
 <h1 align="center">Play Chess!</h1>
 
 <div align="center">
-  <%= erb :'_game_board' %>
 
-  <form method="POST" action="/game">
-    <strong><%= @player.color.capitalize %> Player</strong> Make your move:
-    <input type="text" name="initial_position">
-    <input type="text" name="new_position">
-    <input type="submit" class="button" value="Move!">
-  </form>
+  <% if @board %>
+    <%= erb :'_game_board' %>
+    <%= erb :'_check_status' %>
+    <%= erb :'_move_maker' %>
+  <% end %>
 
-  <%= erb :'_check_status' %>
+  <%= erb :'_new_game' %>
 
 </div>
 
