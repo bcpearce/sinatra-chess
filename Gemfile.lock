@@ -1,18 +1,16 @@
 GIT
   remote: git://github.com/Hawkeye000/command-line-chess.git
-  revision: f9d4aab8a73471fa767af344cc17e3d1ce57b55e
-  branch: making-chess-a-gem
+  revision: badafd49133517396bf21ba66ae6ef3e0e52ac31
+  branch: master
   specs:
     chess (0.0.1)
       colorize (~> 0.7.3)
-      engtagger
 
 GEM
   remote: https://rubygems.org/
   specs:
     colorize (0.7.3)
     dalli (2.7.2)
-    engtagger (0.2.0)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
