@@ -11,4 +11,10 @@ describe "app" do
     expect(last_response).to be_ok
   end
 
+  describe "Game mechanics" do
+
+    before { get '/new_game' }
+    
+  end
+
 end
