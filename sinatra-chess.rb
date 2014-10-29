@@ -3,9 +3,6 @@ require 'sinatra'
 options = { :namespace => "app_v1", :compress => true }
 # cache = Dalli::Client.new('localhost:9292', options)
 
-game = Game.new
-enable :sessions
-
 not_found do
   "404 NOT FOUND\n"
 end
