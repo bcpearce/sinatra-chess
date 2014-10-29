@@ -43,6 +43,10 @@ get '/promote/:piece' do
 end
 
 post '/game' do
+  if game.nil?
+    redirect to('/')
+  end
+
   loc1 = params[:initial_position]
   loc2 = params[:new_position]
   @board = game.board
@@ -56,7 +60,7 @@ post '/game' do
   elsif @board[loc1].is_a?(Piece) && @board[loc1].color != @player.color
     @status = "That is not your piece!"
   else
-    @status = "Invalid move!"
+    @status = "Invalid move!" + " " + @board.move_status
   end
 
   @check =
