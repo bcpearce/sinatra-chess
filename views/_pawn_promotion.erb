@@ -1,0 +1,5 @@
+<strong><%= @player.color.capitalize %> Player</strong> Select your Promotion:
+<a class="button" href="/promote/queen"><%= Queen.new(@player.color).to_s %></a>
+<a class="button" href="/promote/knight"><%= Knight.new(@player.color).to_s %></a>
+<a class="button" href="/promote/rook"><%= Rook.new(@player.color).to_s %></a>
+<a class="button" href="/promote/bishop"><%= Bishop.new(@player.color).to_s %></a>

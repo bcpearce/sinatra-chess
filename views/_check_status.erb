@@ -7,3 +7,8 @@
     <%= "#{@player.color.capitalize} Player, your King is in CHECK!" %>
   </div>
 <% end %>
+<% if @status %>
+  <div class="caution-blurb">
+    <%= @status %>
+  </div>
+<% end %>

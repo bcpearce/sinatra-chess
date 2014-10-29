@@ -26,6 +26,20 @@ get '/game' do
   erb :game, locals: { list: [@board, @player] }
 end
 
+get '/promote' do
+  @board = game.board
+  @player = game.opponent
+  @promotion = true
+  erb :game, locals: { list: [@baord, @player, @promotion]}
+end
+
+get '/promote/:piece' do
+  @board = game.board
+  promote = @board.piece_to_promote?
+  @board.promote(promote.location, params[:piece].to_sym) if promote
+  redirect to('/game')
+end
+
 post '/game' do
   loc1 = params[:initial_position]
   loc2 = params[:new_position]
@@ -33,9 +47,14 @@ post '/game' do
   @player = game.turn
   @opponent = game.opponent
 
-  unless @player.move(loc1.upcase.strip, loc2.upcase.strip, @board).nil?
+  if @player.move(loc1.upcase.strip, loc2.upcase.strip, @board)
     game.turn, game.opponent = game.opponent, game.turn
     @player = game.turn
+    @opponent = game.opponent
+  elsif @board[loc1].is_a?(Piece) && @board[loc1].color != @player.color
+    @status = "That is not your piece!"
+  elsif @player.king(@board).will_be_in_check?(loc1, loc2, @board)
+    @status = "That move will put you in check!"
   end
 
   @check =
@@ -45,5 +64,10 @@ post '/game' do
       :check
     end
 
-  erb :game, locals: { list: [@board, @player, @check] }
+  if @board.piece_to_promote?
+    redirect to('/promote')
+  else
+    erb :game, locals: { list: [@board, @player, @check, @status] }
+  end
+
 end

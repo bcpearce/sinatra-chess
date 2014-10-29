@@ -12,7 +12,11 @@
   <% if @board %>
     <%= erb :'_game_board' %>
     <%= erb :'_check_status' %>
-    <%= erb :'_move_maker' %>
+    <% if @promotion %>
+      <%= erb :'_pawn_promotion' %>
+    <% else %>
+      <%= erb :'_move_maker' %>
+    <% end %>
   <% end %>
 
   <%= erb :'_new_game' %>
