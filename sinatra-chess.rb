@@ -21,6 +21,9 @@ get '/new_game' do
 end
 
 get '/game' do
+  if game.nil?
+    redirect to('/')
+  end
   @board = game.board
   @player = game.turn
   erb :game, locals: { list: [@board, @player] }
@@ -36,7 +39,7 @@ end
 get '/promote/:piece' do
   @board = game.board
   promote = @board.piece_to_promote?
-  @board.promote(promote.location, params[:piece].to_sym) if promote
+  @board.promote(promote.location, params[:piece])
   redirect to('/game')
 end
 
