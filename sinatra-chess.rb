@@ -53,8 +53,8 @@ post '/game' do
     @opponent = game.opponent
   elsif @board[loc1].is_a?(Piece) && @board[loc1].color != @player.color
     @status = "That is not your piece!"
-  elsif @player.king(@board).will_be_in_check?(loc1, loc2, @board)
-    @status = "That move will put you in check!"
+  else
+    @status = "Invalid move!"
   end
 
   @check =
