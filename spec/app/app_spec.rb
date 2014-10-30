@@ -11,10 +11,12 @@ describe "app" do
     expect(last_response).to be_ok
   end
 
-  describe "Game mechanics" do
+  describe "starting a new game" do
+    it "ask white player for a move" do
+      view = get '/new_game'
+      expect view.include?("White Player").to be_truthy
+    end
 
-    before { get '/new_game' }
-    
   end
 
 end
