@@ -10,6 +10,7 @@ end
 
 RSpec.configure do |conf|
   conf.include Rack::Test::Methods
+  conf.include Capybara::DSL, :type => :request
 end
 
 Capybara.app = app
