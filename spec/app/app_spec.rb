@@ -41,6 +41,15 @@ describe "app", :type => :feature  do
       expect(page.find_by_id("D2", " ")).to be_truthy
     end
 
+    it "should not be able to move a black pawn" do
+      visit '/new_game'
+      fill_in('initial_position', with:"D7")
+      fill_in('new_position', with:"D5")
+      click_button('Move!')
+      expect(page.find_by_id("D7", text:Pawn.new("black").to_s)).to be_truthy
+      expect(page.find_by_id("D5", " ")).to be_truthy
+    end
+
   end
 
 end
