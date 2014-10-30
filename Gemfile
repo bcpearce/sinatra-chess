@@ -3,6 +3,7 @@ ruby "2.0.0"
 gem 'shotgun'
 gem 'sinatra'
 gem 'capybara'
+gem 'sinatra-contrib'
 gem 'dalli'
 gem 'activesupport'
 gem 'rspec'

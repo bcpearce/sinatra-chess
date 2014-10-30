@@ -1,6 +1,8 @@
-<form method="POST" action="/game">
-  <strong><%= @player.color.capitalize %> Player</strong> Make your move:
-  <input type="text" name="initial_position">
-  <input type="text" name="new_position">
-  <input type="submit" class="button" value="Move!">
-</form>
+<% unless @check == :checkmate %>
+  <form method="POST" action="/game">
+    <strong><%= @player.color.capitalize %> Player</strong> Make your move:
+    <input type="text" name="initial_position">
+    <input type="text" name="new_position">
+    <input type="submit" class="button" value="Move!">
+  </form>
+<% end %>
