@@ -1,9 +1,19 @@
 require 'sinatra'
+require 'securerandom'
 
-options = { :namespace => "app_v1", :compress => true }
-# cache = Dalli::Client.new('localhost:9292', options)
+enable :sessions
 
+games = Hash.new
 game = nil
+
+use Rack::Session::Cookie,  :key => 'SESSION_ID',
+                            :expire_after => 60*60*24, # one day
+                            :secret => 'remember the game'
+
+before do
+  session[:id] ||= SecureRandom.uuid
+  game = games[session[:id]]
+end
 
 not_found do
   "404 NOT FOUND\n"
@@ -14,8 +24,8 @@ get '/' do
 end
 
 get '/new_game' do
-  game = Game.new
-
+  @game = Game.new
+  games[session[:id]] = @game
   redirect to('/game')
 end
 
@@ -58,9 +68,10 @@ post '/game' do
     @player = game.turn
     @opponent = game.opponent
   elsif @board[loc1].is_a?(Piece) && @board[loc1].color != @player.color
-    @status = "That is not your piece!"
+    @status = "Invalid move! That is not your piece!"
   else
-    @status = "Invalid move!" + " " + @board.move_status
+    error_msg = @board.move_status.nil? ? "" : @board.move_status
+    @status = "Invalid move! " + error_msg
   end
 
   @check =
