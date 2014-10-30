@@ -1,5 +1,5 @@
 <% unless @check == :checkmate %>
-  <form method="POST" action="/game">
+  <form method="POST" action="/game" id="move">
     <strong><%= @player.color.capitalize %> Player</strong> Make your move:
     <input type="text" name="initial_position">
     <input type="text" name="new_position">
