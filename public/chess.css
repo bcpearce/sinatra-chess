@@ -4,8 +4,19 @@ h1 {
 
 th, td {
   font-size: 36;
+  text-align: center;
   align: center;
   width: 40px;
+  height: 40px;
+  border: 2px solid white;
+}
+
+td:hover {
+  border: 2px solid black;
+}
+
+.selected {
+  border: 2px solid orange;
 }
 
 form {
