@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Hawkeye000/command-line-chess.git
-  revision: c3cb65581c200a132e89b140d6693fc88da1eb3b
+  revision: f81a69a789b76aacf45892995469de63822369ce
   branch: master
   specs:
     chess (0.0.9)
@@ -9,7 +9,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.1.6)
+    activesupport (4.1.7)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
