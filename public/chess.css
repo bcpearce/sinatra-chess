@@ -1,9 +1,11 @@
 h1 {
   font-size: 62;
+  font-family: Verdana, sans-serif;
 }
 
 th, td {
   font-size: 36;
+  font-family: Verdana, sans-serif;
   text-align: center;
   align: center;
   width: 40px;

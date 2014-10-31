@@ -6,7 +6,13 @@
 <body>
 <link rel="stylesheet" href="/chess.css">
 
-<h1 align="center">Play Chess!</h1>
+<h1 align="center">
+  <% if @player %>
+    <%= "#{@player.color.capitalize}'s Turn" %>
+  <% else %>
+    <%= "Play Chess!" %>
+  <% end %>
+</h1>
 
 <div align="center">
 
