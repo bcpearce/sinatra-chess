@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/Hawkeye000/command-line-chess.git
-  revision: f81a69a789b76aacf45892995469de63822369ce
+  revision: 559627903c2999d361ee620b274160acfab4cff8
   branch: master
   specs:
-    chess (0.0.9)
+    chess (0.0.10)
       colorize (~> 0.7.3)
 
 GEM
