@@ -3,6 +3,10 @@ h1 {
   font-family: Verdana, sans-serif;
 }
 
+h4 {
+  font-family: Verdana, sans-serif;
+}
+
 th, td {
   font-size: 36;
   font-family: Verdana, sans-serif;
@@ -80,4 +84,17 @@ input[type=submit] {
 .new-game {
   position: relative;
   top: 50px;
+}
+
+.sidebar {
+  position:fixed;
+  left:26%;
+  top: 10%;
+  height:70%;
+}
+
+.scroll-list {
+  padding-right:10px;
+  height:55%;
+  overflow-y:scroll;
 }

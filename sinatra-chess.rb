@@ -42,7 +42,7 @@ get '/promote' do
   @board = game.board
   @player = game.opponent
   @promotion = true
-  erb :game, locals: { list: [@baord, @player, @promotion]}
+  erb :game, locals: { list: [@board, @player, @promotion]}
 end
 
 get '/promote/:piece' do
@@ -79,10 +79,12 @@ post '/game' do
       :check
     end
 
+  @movelist = game.movelist
+
   if game.board.piece_to_promote?
     redirect to('/promote')
   else
-    erb :game, locals: { list: [@board, @player, @check, @status] }
+    erb :game, locals: { list: [@board, @player, @check, @status, @movelist] }
   end
 
 end
