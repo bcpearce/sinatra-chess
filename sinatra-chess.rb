@@ -59,20 +59,18 @@ post '/game' do
 
   loc1 = params[:initial_position]
   loc2 = params[:new_position]
+
+  unless game.move(loc1, loc2)
+    if game.board[loc1].is_a?(Piece) && game.board[loc1].color != game.turn.color
+      @status = "Invalid move! That is not your piece!"
+    else
+      error_msg = game.board.move_status.nil? ? "" : game.board.move_status
+      @status = "Invalid move! " + error_msg
+    end
+  end
+
   @board = game.board
   @player = game.turn
-  @opponent = game.opponent
-
-  if @player.move(loc1.upcase.strip, loc2.upcase.strip, @board)
-    game.turn, game.opponent = game.opponent, game.turn
-    @player = game.turn
-    @opponent = game.opponent
-  elsif @board[loc1].is_a?(Piece) && @board[loc1].color != @player.color
-    @status = "Invalid move! That is not your piece!"
-  else
-    error_msg = @board.move_status.nil? ? "" : @board.move_status
-    @status = "Invalid move! " + error_msg
-  end
 
   @check =
     if @player.king(@board).checkmate?(@board)
@@ -81,7 +79,7 @@ post '/game' do
       :check
     end
 
-  if @board.piece_to_promote?
+  if game.board.piece_to_promote?
     redirect to('/promote')
   else
     erb :game, locals: { list: [@board, @player, @check, @status] }

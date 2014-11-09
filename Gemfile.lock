@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/Hawkeye000/command-line-chess.git
-  revision: 559627903c2999d361ee620b274160acfab4cff8
+  revision: a663ba1ae209418c3a522e5481d9b9c05515203b
   branch: master
   specs:
-    chess (0.0.10)
+    chess (0.0.11)
       colorize (~> 0.7.3)
 
 GEM
@@ -28,11 +28,11 @@ GEM
     i18n (0.6.11)
     json (1.8.1)
     mime-types (2.4.3)
-    mini_portile (0.6.0)
+    mini_portile (0.6.1)
     minitest (5.4.2)
     multi_json (1.10.1)
-    nokogiri (1.6.3.1)
-      mini_portile (= 0.6.0)
+    nokogiri (1.6.4.1)
+      mini_portile (~> 0.6.0)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
