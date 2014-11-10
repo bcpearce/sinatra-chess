@@ -10,7 +10,7 @@
     <% ("A".."H").each do |file| %>
       <% square = "#{file}#{rank}" %>
       <% color = (file.ord + rank.to_i).even? ? "CCCCCC" : "EEEEEE" %>
-      <td id=<%= square %> bgcolor=<%= "\##{color}" %>><%= "#{@board[square]}" %></td>
+      <td id=<%= square %> bgcolor=<%= "\##{color}" %> class="piece"><%= "#{@board[square]}" %></td>
     <% end %>
     <th>  <%= "#{rank}" %></th>
     </tr>

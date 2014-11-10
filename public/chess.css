@@ -38,6 +38,10 @@ input[type=submit] {
   width: auto
 }
 
+.piece {
+  cursor:default;
+}
+
 .button {
   color: black;
   background: #EEEEEE;
