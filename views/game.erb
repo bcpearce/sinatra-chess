@@ -6,19 +6,19 @@
 <body>
 <link rel="stylesheet" href="/chess.css">
 
-<h1 align="center">
-  <% if @player %>
-    <%= "#{@player.color.capitalize}'s Turn" %>
-  <% else %>
-    <%= "Play Chess!" %>
-  <% end %>
-</h1>
-
 <% if @movelist %>
   <%= erb :'_move_list' %>
 <% end %>
 
-<div align="center">
+<div class="primary">
+
+  <h1 class="centered">
+    <% if @player %>
+      <%= "#{@player.color.capitalize}'s Turn" %>
+    <% else %>
+      <%= "Play Chess!" %>
+    <% end %>
+  </h1>
 
   <% if @board %>
     <%= erb :'_game_board' %>

@@ -84,13 +84,27 @@ input[type=submit] {
 .new-game {
   position: relative;
   top: 50px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .sidebar {
   position:fixed;
-  left:26%;
+  right:85%;
   top: 10%;
   height:70%;
+}
+
+.primary {
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+  width:50%
+}
+
+.centered {
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .scroll-list {
