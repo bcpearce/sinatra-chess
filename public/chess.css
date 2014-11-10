@@ -105,6 +105,7 @@ input[type=submit] {
 .centered {
   margin-left:auto;
   margin-right:auto;
+  text-align:center;
 }
 
 .scroll-list {
