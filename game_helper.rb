@@ -12,7 +12,6 @@ def process_move(game, move)
     end
   end
 
-  status ||= 'OK'
 
   board = game.board
   player = game.turn
@@ -27,6 +26,8 @@ def process_move(game, move)
     end
 
   movelist = game.movelist
+
+  status ||= 'OK'
 
   return {game:game.to_json, status:status, check:check}.to_json
 
