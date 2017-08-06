@@ -1,3 +1,18 @@
+def check?(game) 
+  board = game.board
+  player = game.turn
+
+  check = 
+    if player.king(board).checkmate?(board)
+      :checkmate
+    elsif player.king(board).check?(board)
+      :check
+    else
+      false
+    end
+  return check
+end
+
 def process_move(game, move)
 
   loc1 = move[0]
@@ -12,18 +27,9 @@ def process_move(game, move)
     end
   end
 
-
   board = game.board
-  player = game.turn
 
-  check =
-    if player.king(board).checkmate?(board)
-      :checkmate
-    elsif player.king(board).check?(board)
-      :check
-    else
-      false
-    end
+  check = check?(game)
 
   promote = board.piece_to_promote?
   if promote
@@ -38,7 +44,23 @@ def process_move(game, move)
     game:JSON.load(game.to_json), 
     status:status, 
     check:check, 
-    player:player.color,
-    promote:promote }.to_json
+    player:game.turn.color,
+    promote:promote 
+  }.to_json
 
+end
+
+def process_promote(game, piece) 
+  promote = game.board.piece_to_promote?
+  game.board.promote(promote.location, piece)
+
+  check = check?(game)
+
+  return {
+    game:JSON.load(game.to_json),
+    status:'OK',
+    check:check,
+    player:game.turn.color,
+    promote:false
+  }.to_json
 end

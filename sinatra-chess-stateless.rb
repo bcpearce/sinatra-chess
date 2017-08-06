@@ -31,4 +31,13 @@ class SinatraChessStateless < Sinatra::Base
     status 200
   end
 
+  post '/game/promote' do
+    data = JSON.parse request.body.read
+    puts(data);
+    game = YAML.load(data['serial'])
+    piece = data['piece']
+    body(process_promote(game, piece))
+    status 200
+  end
+
 end
