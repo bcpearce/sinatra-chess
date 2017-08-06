@@ -25,10 +25,20 @@ def process_move(game, move)
       false
     end
 
+  promote = board.piece_to_promote?
+  if promote
+    promote = board.piece_to_promote?.location
+  end
+
   movelist = game.movelist
 
   status ||= 'OK'
 
-  return {game:JSON.load(game.to_json), status:status, check:check}.to_json
+  return {
+    game:JSON.load(game.to_json), 
+    status:status, 
+    check:check, 
+    player:player.color,
+    promote:promote }.to_json
 
 end
