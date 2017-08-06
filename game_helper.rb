@@ -29,6 +29,6 @@ def process_move(game, move)
 
   status ||= 'OK'
 
-  return {game:game.to_json, status:status, check:check}.to_json
+  return {game:JSON.load(game.to_json), status:status, check:check}.to_json
 
 end
