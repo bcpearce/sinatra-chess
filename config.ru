@@ -3,5 +3,11 @@ require 'bundler'
 
 Bundler.require
 
-require './sinatra-chess'
-run Sinatra::Application
+puts "Sinatra version: " + Sinatra::VERSION
+puts "Chess version: " + Chess::VERSION
+
+#require './sinatra-chess'
+require './sinatra-chess-stateless'
+#run SinatraChess
+run SinatraChessStateless
+
